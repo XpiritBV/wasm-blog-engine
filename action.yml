@@ -11,7 +11,7 @@ inputs:
     default: _blogs
   github_token:
     required: true
-    description: "Token to interact with GitHub, use ${{ secrets.GITHUB_TOKEN }}"
+    description: "Token to interact with GitHub, use variable secrets.GITHUB_TOKEN"
 runs:
   using: "composite"
   steps:
