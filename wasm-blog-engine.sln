@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "wasm-blog-engine", "wasm-blog-engine.csproj", "{B9FCCC90-768C-4C30-A715-C56E546DFE46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9FCCC90-768C-4C30-A715-C56E546DFE46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9FCCC90-768C-4C30-A715-C56E546DFE46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9FCCC90-768C-4C30-A715-C56E546DFE46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9FCCC90-768C-4C30-A715-C56E546DFE46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8790101B-55DC-45FF-B933-44D251D4D29F}
+	EndGlobalSection
+EndGlobal
