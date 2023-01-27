@@ -6,6 +6,7 @@ public partial class Index
 
     protected override async Task OnInitializedAsync()
     {
+#if DEBUG
         // Get raw markdown from a file
         var client = new HttpClient();
 
@@ -14,5 +15,6 @@ public partial class Index
         if (rawMarkdown == null) { return; }
 
         markdownContent = rawMarkdown;
+#endif
     }
 }
