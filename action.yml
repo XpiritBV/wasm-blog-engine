@@ -9,6 +9,9 @@ inputs:
   blog_directory:
     description: "The directory containing your blogs (yaml), default is '_blogs'"
     default: _blogs
+  github_token:
+    required: true
+    description: "Token to interact with GitHub, use variable secrets.GITHUB_TOKEN"
 runs:
   using: "composite"
   steps:
@@ -64,3 +67,4 @@ runs:
         branch: ${{ inputs.github_pages_branch }}
         folder: '${{ github.workspace }}/blog-engine/release/wwwroot'
         repository-name: ${{ github.repository }}
+        token: ${{ inputs.github_token }}
