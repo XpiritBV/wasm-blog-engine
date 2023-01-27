@@ -23,7 +23,7 @@
       "Microsoft.Extensions.Primitives.dll": "sha256-eXvGx2jcjpTPEJoAHBsW\/VuMPbNyyU+AsuhPmkzSSRY=",
       "Microsoft.JSInterop.dll": "sha256-1I0MqGetgRU7+zAK2LVCl8jphZTv2ISfZIZXsFz+vQ4=",
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-ClhDy3j6C2coeaYSd71VzhinK6w5QGa2ViwhRhQ6L40=",
-      "MudBlazor.dll": "sha256-sQGVfYZMUjt4a1avtgxyyW2iDUQuC09INPOEwll620o=",
+      "MudBlazor.dll": "sha256-UTlU162WmINOr8LoPzX52Noyh9hh5NJwWVcxQOotJuc=",
       "MudBlazor.Markdown.dll": "sha256-MWnku8W3ppuYMCUbC1bLXCcaSIFcPBMySp\/D9QGs8wQ=",
       "MudBlazor.ThemeManager.dll": "sha256-q0jowCEAkyFG4Njov0GzcEMKepLOyZ+qv8Rv1TEm0Bg=",
       "System.Collections.Concurrent.dll": "sha256-EcEPOp9L3GSGhBG9HRvFODs6SO4J6RWiJTCKCz8hHdk=",
@@ -44,7 +44,7 @@
       "System.Private.CoreLib.dll": "sha256-n5GpgYqdFb1nYaIS03WuL0uzDST9wYIkH9L4YVE9vKA=",
       "System.Private.Uri.dll": "sha256-cDTolTOEh+D9sxwT27mSRl2deTr2lePXPLMMZRBmz7Q=",
       "System.Runtime.CompilerServices.Unsafe.dll": "sha256-ZlbBlUJkfmvAt5axXVIHpEdtUvaYHQ3KzOW1UkwFLeU=",
-      "System.Runtime.dll": "sha256-KfKodr146J\/Mq5KevGNHU+kq9W09dgRviH6ZTibWnr8=",
+      "System.Runtime.dll": "sha256-kOJG3R7O8AhPlmv61WEvXedntlFWwDeD0WAuBBE2G\/s=",
       "System.Runtime.InteropServices.dll": "sha256-dgiW01AP0XmMljYTeKLteFhNdPD\/oBGPKH1kXumK5CU=",
       "System.Runtime.InteropServices.JavaScript.dll": "sha256-BPqE6NqU82guV5Qguh5jIghbFK\/CaIYUARPOd6Bsz5M=",
       "System.Runtime.Intrinsics.dll": "sha256-1139\/JNx0Kar0FxPncsfTroShIdXfPzKxpxPxF244fU=",
@@ -52,7 +52,7 @@
       "System.Text.Json.dll": "sha256-TpjGCnMUymDCo5GRbO67m3w\/gNmVA7qA0v\/J6luUbqU=",
       "System.Text.RegularExpressions.dll": "sha256-QSttdPE0OWaeinkjKO74B59kzPLTCHswa2hGHNmu4K8=",
       "System.Threading.dll": "sha256-9PVy3\/oj1RcD5iMapSAUNlrA8iWniZjYJcRmqaGgFTw=",
-      "wasm-blog-engine.dll": "sha256-ZByGjlFLzGIKACiyWQklfYGUCYrqoDhpvSls438Z9Pc="
+      "wasm-blog-engine.dll": "sha256-8g8XhocqK0Rdb0d71e8r29EQYvbXHqaJ9\/R\/6\/5nIUg="
     },
     "extensions": null,
     "lazyAssembly": null,
