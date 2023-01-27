@@ -47,7 +47,7 @@ runs:
 
     # copy markdown files to wwwroot
     - name: copy markdown files to wwwroot
-      run: cp 'blog-content/${{ inputs.blog_directory }}' release/wwwroot/blogs
+      run: cp '${{ GITHUB_WORKSPACE }}/blog-content/${{ inputs.blog_directory }}' release/wwwroot/blogs
       shell: bash
 
     # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
