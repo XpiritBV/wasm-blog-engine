@@ -25,7 +25,6 @@ runs:
       with:
         repository: 'xpiritbv/wasm-blog-engine'
         path: 'blog-engine'
-        clean: false
     
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v1
@@ -50,14 +49,9 @@ runs:
       shell: bash
       working-directory: 'blog-engine'
 
-    - uses: actions/upload-artifact@v3
-      with:
-        name: Debug
-        path: ${{ github.workspace }}
-
     # copy markdown files to wwwroot
     - name: copy markdown files to wwwroot
-      run: cp ${{ github.workspace }}/blog-content/${{ inputs.blog_directory }} release/wwwroot/blogs
+      run: cp -r ${{ github.workspace }}/blog-content/${{ inputs.blog_directory }} release/wwwroot/blogs/
       shell: bash
       working-directory: 'blog-engine'
 
