@@ -62,5 +62,5 @@ runs:
       uses: JamesIves/github-pages-deploy-action@v4.4.1
       with:
         branch: ${{ inputs.github_pages_branch }}
-        folder: 'blog-engine/release/wwwroot'
+        folder: '${{ github.workspace }}/blog-engine/release/wwwroot'
         repository-name: ${{ github.repository }}
