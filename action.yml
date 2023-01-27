@@ -61,5 +61,6 @@ runs:
     - name: Commit wwwroot to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4.4.1
       with:
-        BRANCH: ${{ inputs.github_pages_branch }}
-        FOLDER: 'blog-engine/release/wwwroot'
+        branch: ${{ inputs.github_pages_branch }}
+        folder: 'blog-engine/release/wwwroot'
+        repository-name: ${{ github.repository }}
