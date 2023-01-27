@@ -2,12 +2,16 @@ name: "BlazorBlogEngine"
 description: "Grabs your input and publishes it as GitHub Pages website"
 author: "Team André"
 inputs:
+
   github_pages_branch:
     description: "The branch to publish the output to, default is 'gh-pages'"
     default: gh-pages
   blog_directory:
     description: "The directory containing your blogs (yaml), default is '_blogs'"
     default: _blogs
+  github_token:
+    required: true
+    description: "Token to interact with GitHub, use ${{ secrets.GITHUB_TOKEN }}"
 runs:
   using: "composite"
   steps:
@@ -54,6 +58,6 @@ runs:
     - name: Commit wwwroot to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4.4.1
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ inputs.github_token }}
         BRANCH: ${{ inputs.github_pages_branch }}
         FOLDER: release/wwwroot
