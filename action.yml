@@ -19,6 +19,7 @@ runs:
     - uses: actions/checkout@v3
       with:
         path: 'blog-content'
+        ref: main
 
     # Checkout the wasm-blog-engine to the root folder
     - uses: actions/checkout@v3
@@ -51,7 +52,7 @@ runs:
 
     # copy markdown files to wwwroot
     - name: copy markdown files to wwwroot
-      run: cp '${{ github.workspace }}/blog-content/${{ inputs.blog_directory }}' 'release/wwwroot/blogs'
+      run: cp ${{ github.workspace }}/blog-content/${{ inputs.blog_directory }} release/wwwroot/blogs
       shell: bash
       working-directory: 'blog-engine'
 
