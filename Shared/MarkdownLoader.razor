@@ -1,0 +1,24 @@
+﻿<MudMarkdown Value="@markdown" />
+
+@code {
+    [Parameter] public string DownloadUrl { get; set; }
+
+    HttpClient client = new HttpClient();
+
+    string markdown = string.Empty;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (string.IsNullOrEmpty(DownloadUrl)) return;
+
+        markdown = await DownloadBlogContent(DownloadUrl);
+    }
+
+    private async Task<string> DownloadBlogContent(string downloadUrl)
+    {
+        var rawMarkdown = await client.GetStringAsync(downloadUrl);
+        if (rawMarkdown == null) { return string.Empty; }
+
+        return rawMarkdown;
+    }
+}

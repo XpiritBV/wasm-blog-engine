@@ -9,6 +9,7 @@ public partial class Index
         // Get raw markdown from a file
         var client = new HttpClient();
 
+        // DEMO 1
         var rawMarkdown = await client.GetStringAsync("https://localhost:5001/blogs/helloworld.md");
         if (rawMarkdown == null) { return; }
 
