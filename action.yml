@@ -9,9 +9,6 @@ inputs:
   blog_directory:
     description: "The directory containing your blogs (yaml), default is '_blogs'"
     default: _blogs
-  github_token:
-    required: true
-    description: "Token to interact with GitHub, use variable secrets.GITHUB_TOKEN"
 runs:
   using: "composite"
   steps:
@@ -19,7 +16,6 @@ runs:
     - uses: actions/checkout@v3
       with:
         path: 'blog-content'
-        ref: main
 
     # Checkout the wasm-blog-engine to the root folder
     - uses: actions/checkout@v3
@@ -52,7 +48,7 @@ runs:
 
     # copy markdown files to wwwroot
     - name: copy markdown files to wwwroot
-      run: cp ${{ github.workspace }}/blog-content/${{ inputs.blog_directory }} release/wwwroot/blogs
+      run: cp -r ${{ github.workspace }}/blog-content/${{ inputs.blog_directory }} release/wwwroot/blogs/
       shell: bash
       working-directory: 'blog-engine'
 
@@ -65,6 +61,5 @@ runs:
     - name: Commit wwwroot to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4.4.1
       with:
-        GITHUB_TOKEN: ${{ inputs.github_token }}
         BRANCH: ${{ inputs.github_pages_branch }}
-        FOLDER: 'blog-content/release/wwwroot'
+        FOLDER: 'blog-engine/release/wwwroot'
