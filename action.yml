@@ -53,7 +53,7 @@ runs:
     - uses: actions/upload-artifact@v3
       with:
         name: Debug
-        path: /
+        path: ${{ github.workspace }}
 
     # copy markdown files to wwwroot
     - name: copy markdown files to wwwroot
