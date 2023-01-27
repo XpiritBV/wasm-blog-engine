@@ -52,7 +52,7 @@
       "System.Text.Json.dll": "sha256-TpjGCnMUymDCo5GRbO67m3w\/gNmVA7qA0v\/J6luUbqU=",
       "System.Text.RegularExpressions.dll": "sha256-QSttdPE0OWaeinkjKO74B59kzPLTCHswa2hGHNmu4K8=",
       "System.Threading.dll": "sha256-9PVy3\/oj1RcD5iMapSAUNlrA8iWniZjYJcRmqaGgFTw=",
-      "wasm-blog-engine.dll": "sha256-8g8XhocqK0Rdb0d71e8r29EQYvbXHqaJ9\/R\/6\/5nIUg="
+      "wasm-blog-engine.dll": "sha256-LOGS1wNV4hckKXzsDFHyl7XjUFPESMMzTOTfm8AqPao="
     },
     "extensions": null,
     "lazyAssembly": null,
