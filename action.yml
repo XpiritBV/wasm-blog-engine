@@ -24,7 +24,7 @@ runs:
     - uses: actions/checkout@v3
       with:
         repository: 'xpiritbv/wasm-blog-engine'
-        clean: false
+        path: 'blog-engine'
     
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v1
@@ -35,30 +35,35 @@ runs:
     - name: Publish .NET Project
       run: dotnet publish wasm-blog-engine.csproj -c Release -o release --nologo
       shell: bash
+      working-directory: 'blog-engine'
     
     # changes the base-tag in index.html from '/' to 'wasm-blog-engine' to match GitHub Pages repository subdirectory
     - name: Change base-tag in index.html from / to wasm-blog-engine
       run: sed -i 's/<base href="\/" \/>/<base href="\/wasm-blog-engine\/" \/>/g' release/wwwroot/index.html
       shell: bash
+      working-directory: 'blog-engine'
     
     # copy index.html to 404.html to serve the same file when a file is not found
     - name: copy index.html to 404.html
       run: cp release/wwwroot/index.html release/wwwroot/404.html
       shell: bash
+      working-directory: 'blog-engine'
 
     # copy markdown files to wwwroot
     - name: copy markdown files to wwwroot
-      run: cp '${{ github.workspace }}/blog-content/${{ inputs.blog_directory }}' release/wwwroot/blogs
+      run: cp '${{ github.workspace }}/blog-content/${{ inputs.blog_directory }}' 'release/wwwroot/blogs'
       shell: bash
+      working-directory: 'blog-engine'
 
     # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
     - name: Add .nojekyll file
       run: touch release/wwwroot/.nojekyll
       shell: bash
+      working-directory: 'blog-engine'
       
     - name: Commit wwwroot to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4.4.1
       with:
         GITHUB_TOKEN: ${{ inputs.github_token }}
         BRANCH: ${{ inputs.github_pages_branch }}
-        FOLDER: release/wwwroot
+        FOLDER: 'blog-content/release/wwwroot'
