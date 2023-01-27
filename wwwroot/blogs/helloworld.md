@@ -1,3 +1,9 @@
+{
+    "title": "My First Blog!",
+    "author": "André",
+    "publishDate": "27-01-2023T15:00:00Z"
+}
+
 # Hello, Markdown World!
 This is my first blogpost!
 
