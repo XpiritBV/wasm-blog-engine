@@ -7,9 +7,17 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Include="wwwroot\blogs\helloworld.md">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Markdig" Version="0.30.4" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.2" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.2" PrivateAssets="all" />
 		<PackageReference Include="MudBlazor" Version="6.1.7" />
+		<PackageReference Include="MudBlazor.Markdown" Version="0.1.0" />
 	</ItemGroup>
 	
 	
