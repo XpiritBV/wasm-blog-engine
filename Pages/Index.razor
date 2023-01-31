@@ -1,5 +1,9 @@
 ﻿@page "/"
 
-<MudText Typo="Typo.h3" GutterBottom="true">Result DEMO 1; Loaded from local FS</MudText>
+<h1 class="text-3xl font-bold underline">
+    Result DEMO 1; Loaded from local FS
+</h1>
 
-<MudMarkdown Value="@markdownContent" />
+<article class="prose lg:prose-xl">
+    <MarkdownViewer MarkdownInput="@markdownContent" />
+</article>

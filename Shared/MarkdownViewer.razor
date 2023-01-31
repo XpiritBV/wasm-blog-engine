@@ -1,0 +1,37 @@
+﻿@using Microsoft.JSInterop;
+@using Markdig;
+
+<div id="viewer">
+    @if (string.IsNullOrEmpty(MarkdownInput))
+    {
+        <div class="py-3">
+            Er is op dit moment geen informatie beschikbaar.
+        </div>
+    }
+    else
+    {
+        @content
+    }
+</div>
+
+@code {
+    [Parameter] public string MarkdownInput { get; set; }
+    [Inject] IJSRuntime JSRuntime { get; set; }
+    MarkupString content;
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+
+        // Prevent trying to build html from empty strings (too early)
+        if (string.IsNullOrEmpty(MarkdownInput)) return;
+
+        var pipeline = new MarkdownPipelineBuilder()
+            .UseAdvancedExtensions()
+            .UseEmojiAndSmiley(true)
+            .Build();
+
+        var result = Markdown.ToHtml(MarkdownInput, pipeline);
+        content = (MarkupString)result;
+    }
+}
