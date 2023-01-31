@@ -1,0 +1,16 @@
+﻿@page "/errortest"
+
+<h3>ErrorPageTest</h3>
+
+<article>
+    This is a test error.
+</article>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        throw new NotImplementedException("This page should throw an error :)");
+    }
+}

@@ -1,5 +1,4 @@
-﻿@using Microsoft.JSInterop;
-@using Markdig;
+﻿@using Markdig;
 
 <div id="viewer">
     @if (string.IsNullOrEmpty(MarkdownInput))
@@ -16,7 +15,6 @@
 
 @code {
     [Parameter] public string MarkdownInput { get; set; }
-    [Inject] IJSRuntime JSRuntime { get; set; }
     MarkupString content;
 
     protected override void OnParametersSet()
