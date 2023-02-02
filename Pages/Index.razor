@@ -1,9 +1,10 @@
 ﻿@page "/"
 
 <h1 class="text-3xl font-bold underline">
-    Result DEMO 1; Loaded from local FS
+    Overview
 </h1>
 
-<article class="prose lg:prose-xl">
-    <MarkdownViewer MarkdownInput="@markdownContent" />
-</article>
+@foreach (var blog in Blogs)
+{
+    <BlogSummaryCard Title="@blog.Title" Excerpt="@blog.Excerpt" ImageUrl="@blog.ImageUrl" />
+}

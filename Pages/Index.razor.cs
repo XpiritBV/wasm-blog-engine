@@ -1,8 +1,14 @@
+using Microsoft.AspNetCore.Components;
+using wasm_blog_engine.Models;
+using wasm_blog_engine.Services;
+
 namespace wasm_blog_engine.Pages;
 
 public partial class Index
 {
-    string markdownContent = "";
+    [Inject] public IBlogPostsRetriever BlogPostsRetriever { get; set; }
+    
+    private List<Blog> Blogs = new List<Blog>();
 
     protected override async Task OnInitializedAsync()
     {
@@ -22,18 +28,11 @@ public partial class Index
         if (openTag > 0 || closeTag < 1) { return; }
 
         var metadataString = rawMarkdown.Substring(openTag, closeTag + 1);
-        var metadata = System.Text.Json.JsonSerializer.Deserialize<Metadata>(metadataString);
+        var metadata = System.Text.Json.JsonSerializer.Deserialize<MetaData>(metadataString);
 
         var restOfTheContent = rawMarkdown.Substring(closeTag + 1 + 1);
 
         markdownContent = restOfTheContent;
 #endif
-    }
-
-    class Metadata
-    {
-        public string title { get; set; }
-        public string author { get; set; }
-        public string publishDate { get; set; }
     }
 }
