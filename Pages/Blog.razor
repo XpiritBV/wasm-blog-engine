@@ -4,43 +4,10 @@
     Result DEMO 2; Loaded from Github repo
 </h1>
 
-@foreach (var blogItem in blogMarkdownFiles)
-{
-    <MarkdownLoader DownloadUrl="@blogItem.download_url" />
-}
-
 @code {
-    HttpClient client = new HttpClient();
-    List<BlogMarkdownFile> blogMarkdownFiles = new();
 
     protected override async Task OnInitializedAsync()
     {
-        // Build the API URL
-        // https://api.github.com/repos/xpiritbv/wasm-blog-engine/contents/blogs?ref=gh-pages
-        string url = $"https://api.github.com/repos/xpiritbv/wasm-blog-engine/contents/blogs?ref=gh-pages";
-
-        // Make the GET request
-        blogMarkdownFiles = await client.GetFromJsonAsync<List<BlogMarkdownFile>>(url);
-    }
-
-    public class BlogMarkdownFile
-    {
-        public string name { get; set; }
-        public string path { get; set; }
-        public string sha { get; set; }
-        public int size { get; set; }
-        public string url { get; set; }
-        public string html_url { get; set; }
-        public string git_url { get; set; }
-        public string download_url { get; set; }
-        public string type { get; set; }
-        public _Links _links { get; set; }
-    }
-
-    public class _Links
-    {
-        public string self { get; set; }
-        public string git { get; set; }
-        public string html { get; set; }
+        
     }
 }
