@@ -9,7 +9,7 @@ inputs:
   blog_directory:
     description: "The directory containing your blogs (yaml), default is '_blogs'"
     default: _blogs
-  images_directory:
+  image_directory:
     description: "The directory containing your images, default is '_images'"
     default: _images
 runs:
@@ -49,12 +49,16 @@ runs:
 
     # copy markdown files to wwwroot
     - name: copy markdown files to wwwroot
-      run: cp -r ${{ github.workspace }}/blog-content/${{ inputs.blog_directory }}/* ${{ github.workspace }}/release/wwwroot/blogs/
+      run: |
+        mkdir -p "blogs"
+        cp -r ${{ github.workspace }}/blog-content/${{ inputs.blog_directory }}/* ${{ github.workspace }}/release/wwwroot/blogs/
       shell: bash
 
     # copy images to wwwroot
     - name: copy images to wwwroot
-      run: cp -r ${{ github.workspace }}/blog-content/${{ inputs.images_directory }}/* ${{ github.workspace }}/release/wwwroot/images/
+      run: |
+        mkdir -p "images"
+        cp -r ${{ github.workspace }}/blog-content/${{ inputs.image_directory }}/* ${{ github.workspace }}/release/wwwroot/images/
       shell: bash
 
     # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
