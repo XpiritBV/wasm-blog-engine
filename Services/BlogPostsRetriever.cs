@@ -6,6 +6,13 @@ namespace wasm_blog_engine.Services;
 
 public class BlogPostsRetriever : IBlogPostsRetriever
 {
+    private readonly IConfiguration configuration;
+
+    public BlogPostsRetriever(IConfiguration configuration)
+    {
+        this.configuration = configuration;
+    }
+
     public async Task<List<BlogPost>> GetAll()
     {
         List<BlogPost> blogPosts = new List<BlogPost>();
@@ -16,7 +23,7 @@ public class BlogPostsRetriever : IBlogPostsRetriever
         // Build the API URL
         // https://api.github.com/repos/xpiritbv/wasm-blog-engine/contents/blogs?ref=gh-pages
         // Todo: Make this matching with config and local repository
-        string url = $"https://api.github.com/repos/xpiritbv/wasm-blog-engine/contents/blogs?ref=gh-pages";
+        string url = $"https://api.github.com/repos/{configuration["github:repositoryName"]}/contents/blogs?ref={configuration["github:pagesBranch"]}";
 
         // Make the GET request
         var blogMarkdownFiles = await client.GetFromJsonAsync<List<BlogMarkdownFile>>(url);

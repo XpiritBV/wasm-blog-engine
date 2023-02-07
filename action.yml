@@ -30,6 +30,14 @@ runs:
       with:
         dotnet-version: 7.0.x
 
+    - name: Replace tokens in appsettings.json
+      uses: falnyr/replace-env-vars-action@master
+      env:
+        RepositoryName: ${{ github.repository }}
+        PagesBranch: ${{ inputs.github_pages_branch }}
+      with:
+        filename: release/wwwroot/appsettings.json
+
     # publishes Blazor project to the release-folder
     - name: Publish .NET Project
       run: dotnet publish wasm-blog-engine.csproj -c Release -o release --nologo
