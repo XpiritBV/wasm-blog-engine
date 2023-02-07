@@ -39,7 +39,7 @@ runs:
     # only if it's a subdirectory
     - name: Change base-tag in index.html from / to wasm-blog-engine
       if: endsWith(github.repository, '.github.io') == false
-      run: sed -i 's~<base href="/" />~<base href="${{ github.repository }}" />~g' release/wwwroot/index.html
+      run: sed -i 's~<base href="/" />~<base href="/${{ github.repository }}" />~g' release/wwwroot/index.html
       shell: bash
     
     # copy index.html to 404.html to serve the same file when a file is not found
