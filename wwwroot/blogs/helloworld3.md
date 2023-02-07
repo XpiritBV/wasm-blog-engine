@@ -2,7 +2,7 @@
     "title": "My Third Blog!",
     "author": "Andr�",
     "imageUrl": "/images/arnold-francisca-f77Bh3inUpE-unsplash.jpg",
-    "publishDate": "25-01-2023T15:00:00Z"
+    "publishDate": "2023-01-25T15:00:00Z"
 }
 
 # Hello, Markdown World!

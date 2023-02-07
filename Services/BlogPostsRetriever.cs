@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Net.Http.Json;
 using wasm_blog_engine.Models;
 
@@ -56,7 +57,7 @@ public class BlogPostsRetriever : IBlogPostsRetriever
                 Excerpt = metadata.excerpt,
                 Title = metadata.title,
                 ImageUrl = metadata.imageUrl,
-                PublishDate = DateTime.Parse(metadata.publishDate)
+                PublishDate = DateTime.ParseExact(metadata.publishDate, "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture)
             });
 
             // Not used in this summary
