@@ -9,6 +9,9 @@ inputs:
   blog_directory:
     description: "The directory containing your blogs (yaml), default is '_blogs'"
     default: _blogs
+  images_directory:
+    description: "The directory containing your images, default is '_images'"
+    default: _images
 runs:
   using: "composite"
   steps:
@@ -32,9 +35,11 @@ runs:
       run: dotnet publish wasm-blog-engine.csproj -c Release -o release --nologo
       shell: bash
     
-    # changes the base-tag in index.html from '/' to 'wasm-blog-engine' to match GitHub Pages repository subdirectory
+    # changes the base-tag in index.html from '/' to repositoryname to match GitHub Pages repository subdirectory
+    # only if it's a subdirectory
     - name: Change base-tag in index.html from / to wasm-blog-engine
-      run: sed -i 's/<base href="\/" \/>/<base href="\/wasm-blog-engine\/" \/>/g' release/wwwroot/index.html
+      if: endsWith(github.repository, '.github.io') == false
+      run: sed -i 's/<base href="\/" \/>/<base href="\/${{ github.repository }}\/" \/>/g' release/wwwroot/index.html
       shell: bash
     
     # copy index.html to 404.html to serve the same file when a file is not found
@@ -45,6 +50,11 @@ runs:
     # copy markdown files to wwwroot
     - name: copy markdown files to wwwroot
       run: cp -r ${{ github.workspace }}/blog-content/${{ inputs.blog_directory }}/* ${{ github.workspace }}/release/wwwroot/blogs/
+      shell: bash
+
+    # copy images to wwwroot
+    - name: copy images to wwwroot
+      run: cp -r ${{ github.workspace }}/blog-content/${{ inputs.images_directory }}/* ${{ github.workspace }}/release/wwwroot/images/
       shell: bash
 
     # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
