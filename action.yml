@@ -36,7 +36,7 @@ runs:
         RepositoryName: ${{ github.repository }}
         PagesBranch: ${{ inputs.github_pages_branch }}
       with:
-        filename: blog-content/wwwroot/appsettings.json
+        filename: wwwroot/appsettings.json
 
     # publishes Blazor project to the release-folder
     - name: Publish .NET Project
