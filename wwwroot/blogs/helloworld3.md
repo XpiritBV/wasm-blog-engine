@@ -1,8 +1,8 @@
 {
-    "title": "My First Blog!",
+    "title": "My Third Blog!",
     "author": "Andr�",
     "imageUrl": "/images/arnold-francisca-f77Bh3inUpE-unsplash.jpg",
-    "publishDate": "27-01-2023T15:00:00Z"
+    "publishDate": "25-01-2023T15:00:00Z"
 }
 
 # Hello, Markdown World!
