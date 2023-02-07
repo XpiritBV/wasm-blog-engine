@@ -55,14 +55,15 @@ public class BlogPostsRetriever : IBlogPostsRetriever
             {
                 Excerpt = metadata.excerpt,
                 Title = metadata.title,
-                ImageUrl = metadata.imageUrl
+                ImageUrl = metadata.imageUrl,
+                PublishDate = DateTime.Parse(metadata.publishDate)
             });
 
             // Not used in this summary
             var restOfTheContent = rawMarkdown.Substring(closeTag + 1 + 1);
         }
 
-        return blogPosts;
+        return blogPosts.OrderByDescending(x => x.PublishDate).ToList();
     }
 }
 
