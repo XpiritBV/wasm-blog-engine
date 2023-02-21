@@ -1,10 +1,7 @@
 ﻿@page "/"
 
-<h1 class="text-3xl font-bold underline">
-    Overview
-</h1>
+<!-- This is the First Blogpost block -->
+<FirstPost Blog="latestBlogPost" />
 
-@foreach (var blog in Blogs)
-{
-    <BlogSummaryCard Title="@blog.Title" Excerpt="@blog.Excerpt" ImageUrl="@blog.ImageUrl" />
-}
+<!-- This is the side column containing the older Blogposts -->
+<RecentPosts Blogs="Blogs" />

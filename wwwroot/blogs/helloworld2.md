@@ -1,6 +1,6 @@
 {
     "title": "My Second Blog!",
-    "author": "Andr�",
+    "author": "André",
     "imageUrl": "/images/arnold-francisca-f77Bh3inUpE-unsplash.jpg",
     "publishDate": "2023-01-26T15:00:00Z"
 }

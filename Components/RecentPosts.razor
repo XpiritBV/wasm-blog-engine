@@ -1,0 +1,27 @@
+﻿<div class="mt-8 lg:w-1/4 lg:mt-0 lg:px-6">
+
+    @foreach (var blog in blogsInScopeForThisComponent)
+    {
+        <BlogSummaryCard Title="@blog.Title" Excerpt="@blog.Excerpt" ImageUrl="@blog.ImageUrl" />
+        <hr class="my-6 border-gray-200 dark:border-gray-700">
+    }
+
+</div>
+
+@code {
+    [Parameter] public List<BlogPost> Blogs { get; set; } = new();
+
+    List<BlogPost> blogsInScopeForThisComponent = new();
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+
+        if (Blogs.Count == 0) return;
+
+        blogsInScopeForThisComponent = Blogs
+            .OrderByDescending(o => o.PublishDate)
+            .Skip(1) // The first post will be rendered by some other component
+            .ToList();
+    }
+}
