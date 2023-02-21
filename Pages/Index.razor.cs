@@ -9,9 +9,12 @@ public partial class Index
     [Inject] public IBlogPostsRetriever BlogPostsRetriever { get; set; }
     
     private List<BlogPost> Blogs = new();
+    private BlogPost? latestBlogPost;
 
     protected override async Task OnInitializedAsync()
     {
         Blogs = await BlogPostsRetriever.GetAll();
+
+        latestBlogPost = Blogs.FirstOrDefault();
     }
 }

@@ -1,13 +1,30 @@
 ﻿@page "/blog"
+@page "/blog/{blogPostSlug}"
 
 <h1 class="text-3xl font-bold underline">
     Result DEMO 2; Loaded from Github repo
 </h1>
 
 @code {
+    [Parameter] public string BlogPostSlug { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    [Inject] NavigationManager navigationManager { get; set; }
+    [Inject] IBlogPostsRetriever blogPostsRetriever { get; set; }
+
+    protected override void OnParametersSet()
     {
-        
+        base.OnParametersSet();
+        if (string.IsNullOrEmpty(BlogPostSlug))
+        {
+            // Let's go back to the Index
+            navigationManager.NavigateTo("/");
+        }
+
+        // Load the actual FULL blog post here
+        // .....
+        //var blogPostContent = blogPostsRetriever.GetBlogBySlug(BlogPostSlug); // or just plain Filename???
+        // ...
+        // ..
+        // .
     }
 }

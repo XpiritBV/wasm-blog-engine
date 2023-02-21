@@ -1,6 +1,6 @@
 {
     "title": "My Third Blog!",
-    "author": "Andr�",
+    "author": "André",
     "imageUrl": "/images/arnold-francisca-f77Bh3inUpE-unsplash.jpg",
     "publishDate": "2023-01-25T15:00:00Z"
 }

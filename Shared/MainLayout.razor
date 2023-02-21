@@ -1,3 +1,24 @@
 ﻿@inherits LayoutComponentBase
 
-@Body
+<header>
+    <!-- Reserved for any header content -->
+</header>
+
+<!-- Main content should fill the screen vertically and provide the light/dark background base -->
+<main class="h-screen bg-white dark:bg-gray-900">
+
+    <!-- The container should provide the positioning of content -->
+    <div class="container px-6 py-10 mx-auto">
+        <div class="lg:flex lg:-mx-6">
+
+            <!-- Here we render our current page content -->
+            @Body
+
+        </div>
+    </div>
+
+</main>
+
+<footer>
+    <!-- Reserved for any footer content -->
+</footer>

@@ -1,6 +1,6 @@
 {
     "title": "My First Blog!",
-    "author": "Andr�",
+    "author": "André",
     "imageUrl": "/images/arnold-francisca-f77Bh3inUpE-unsplash.jpg",
     "publishDate": "2023-01-27T15:00:00Z"
 }

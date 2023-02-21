@@ -1,32 +1,47 @@
-<div class="max-w-sm rounded overflow-hidden shadow-lg">
-  <img class="w-full" src="@ImageUrl" alt="Sunset in the mountains">
-  <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">@Title</div>
-    <p class="text-gray-700 text-base">
-      @Excerpt
-    </p>
-  </div>
-  <div class="px-6 pt-4 pb-2">
-    @foreach (var tag in Tags)
-    {
-      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#@tag</span>
-    }
-  </div>
+<div>
+    <a href="#">
+
+    </a>
+
+    <h3 class="text-blue-500 capitalize">@Title</h3>
+
+    <a href="#" class="block mt-2 font-medium text-gray-700 hover:underline hover:text-gray-500 dark:text-gray-400 ">
+        An excerpt in writing is a quoted passage taken from a longer work, such as a book, or poem, or an article.
+        @Excerpt
+    </a>
 </div>
 
+@*
+<div class="max-w-sm rounded overflow-hidden shadow-lg">
+    <img class="w-full" src="@ImageUrl" alt="Sunset in the mountains">
+    <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">@Title</div>
+        <p class="text-gray-700 text-base">
+            @Excerpt
+        </p>
+    </div>
+    <div class="px-6 pt-4 pb-2">
+        @foreach (var tag in Tags)
+        {
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#@tag</span>
+        }
+    </div>
+</div>
+*@
+
 @code {
-  [Parameter]
-  [EditorRequired]
-  public string Title { get; set; } = string.Empty;
+    [Parameter]
+    [EditorRequired]
+    public string Title { get; set; } = string.Empty;
 
-  [Parameter]
-  [EditorRequired]
-  public string Excerpt { get; set; } = string.Empty;
-  
-  [Parameter]
-  [EditorRequired]
-  public string ImageUrl { get; set; } = string.Empty;
+    [Parameter]
+    [EditorRequired]
+    public string Excerpt { get; set; } = string.Empty;
 
-  [Parameter]
-  public IEnumerable<string> Tags { get; set; } = Enumerable.Empty<string>();
+    [Parameter]
+    [EditorRequired]
+    public string ImageUrl { get; set; } = string.Empty;
+
+    [Parameter]
+    public IEnumerable<string> Tags { get; set; } = Enumerable.Empty<string>();
 }
